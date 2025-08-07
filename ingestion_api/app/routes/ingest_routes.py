@@ -28,5 +28,5 @@ def ingest_data(store_type: str, sensor_type: str, payload: dict = Body(...)):
     except Exception as e:
         raise HTTPException(status_code = 422, detail = f'Validation Error: {str(e)}')
 
-    store_map[store_type](sensor_type, payload)
+    store_map[store_type](sensor_type, validated_data.dict())
     return {'status': 'success', 'message': f'{sensor_type} data ingested'}
