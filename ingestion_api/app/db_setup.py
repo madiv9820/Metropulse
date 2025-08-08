@@ -1,7 +1,8 @@
 import sqlite3
+from configs.settings import DB_PATH
 
 def create_tables():
-    conn = sqlite3.connect("/home/madiv/Study/Projects/Metropulse/ingestion_api/data/db/metropulse.db")
+    conn = sqlite3.connect(DB_PATH)
     cur = conn.cursor()
 
     # Traffic sensor table
