@@ -1,9 +1,10 @@
 from fastapi import FastAPI
-from app.routes import ingest_routes
+from app.routes import ingest_routes, fetch_routes
 
 app = FastAPI(title = "Metropulse Smarcity Ingestion API")
 app.include_router(ingest_routes.router)
 app.include_router(ingest_routes.router, prefix = '/ingest', tags = ['Ingestion'])
+app.include_router(fetch_routes.router, prefix = '/fetch', tags = ['Extraction'])
 
 @app.get("/health")
 def health_check():
