@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException, Body
 from app.models import TrafficSensorData, PollutionSensorData, WeatherSensorData
-from app.utils.file_writer import save_to_local, save_to_db
+from app.utils.data_writer import save_to_local, save_to_db
 
 router = APIRouter()
 
